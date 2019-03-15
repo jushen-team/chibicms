@@ -1,0 +1,9 @@
+﻿@using Jushen.ChibiCms.ChibiContent
+@model Content
+@{
+    ViewData["Title"] = "defaultContentView";
+}
+
+<h2>defaultContentView</h2>
+
+@Html.Raw(Model.RenderHtml())

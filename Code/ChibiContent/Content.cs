@@ -17,7 +17,7 @@ namespace Jushen.ChibiCms.ChibiContent
         {
             try
             {
-                string Markdown = File.ReadAllText(path+@"\content.md");
+                RawMarkdown = File.ReadAllText(path+@"\content.md");
                 Meta = new ContentMeta(path);
             }
             catch (Exception)
