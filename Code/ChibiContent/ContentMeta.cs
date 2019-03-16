@@ -25,6 +25,10 @@ namespace Jushen.ChibiCms.ChibiContent
 
         public string Template { get; set; }
 
+        public string Author { get; set; }
+
+        public string Cover { get; set; }
+
         public ContentMeta(string path)
         {
             topPath = path;

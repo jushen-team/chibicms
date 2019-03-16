@@ -40,6 +40,7 @@ namespace Jushen.ChibiCms.ChibiContent
             //load meta
             foreach (var contentTop in contentTops)
             {
+                //todo: validata the top path before creating meta
                 var tMeta = new ContentMeta(contentTop);
                 metas.Add(tMeta);
                 //update the update time

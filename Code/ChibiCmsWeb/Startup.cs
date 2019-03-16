@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -30,6 +31,19 @@ namespace ChibiCmsWeb
             services.AddMvc();
             var contentManager = new ContentManager(HostingEnvironment.WebRootPath+@"\contents");
             services.AddSingleton<ContentManager>(contentManager);
+
+
+            //set view path for template
+            if (!string.IsNullOrEmpty(Configuration["TemplatePath"]))
+            {
+                services.Configure<RazorViewEngineOptions>(o =>
+                {
+                    o.ViewLocationFormats.Clear();
+                    o.ViewLocationFormats.Add(Configuration["TemplatePath"] +"/{1}/{0}" + RazorViewEngine.ViewExtension);
+                    o.ViewLocationFormats.Add(Configuration["TemplatePath"] +"/Shared/{0}" + RazorViewEngine.ViewExtension);
+                });
+            }
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
