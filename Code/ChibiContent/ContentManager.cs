@@ -52,7 +52,7 @@ namespace Jushen.ChibiCms.ChibiContent
                 }
             }
             //sort and return
-            return metas.OrderByDescending(mt => mt.ChangeTime).ToList();
+            return metas.OrderByDescending(mt => mt.ChangeTime).Skip((page-1)*pageSize).Take(pageSize).ToList();
 
         }
 
