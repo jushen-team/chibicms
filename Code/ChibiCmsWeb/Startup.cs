@@ -56,10 +56,10 @@ namespace ChibiCmsWeb
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Index}/{action=Index}/{id?}");
                 routes.MapRoute(
                     name: "content",
-                    template: "contents/{path}",
+                    template: "contents/{*path}",
                     defaults: new { controller = "contents", action = "getOneContent" });
             });
         }

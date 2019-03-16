@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace Jushen.ChibiCms.ChibiContent
 {
@@ -24,6 +26,38 @@ namespace Jushen.ChibiCms.ChibiContent
 
 
         /// <summary>
+        /// list lasted content with pagination
+        /// </summary>
+        /// <param name="page">the page start from 1</param>
+        /// <param name="pageSize">page size</param>
+        /// <returns></returns>
+        public List<ContentMeta> GetContentMeta(int page=1,int pageSize=10)
+        {
+            //get all content top directories
+            var contentTops = Directory.GetDirectories(TopPath, "*", SearchOption.AllDirectories);
+
+            var metas = new List<ContentMeta>();
+            //load meta
+            foreach (var contentTop in contentTops)
+            {
+                var tMeta = new ContentMeta(contentTop);
+                metas.Add(tMeta);
+                //update the update time
+                //this is very ineffecient must revise
+                var updateTime=File.GetLastWriteTime(Path.Combine(contentTop, Content.ContentFileName));
+                if (tMeta.ChangeTime != updateTime)
+                {
+                    tMeta.ChangeTime = updateTime;
+                    tMeta.Update();
+                }
+            }
+            //sort and return
+            return metas.OrderByDescending(mt => mt.ChangeTime).ToList();
+
+        }
+
+
+        /// <summary>
         /// get a lis tof metadata of content filtered by fileter
         /// </summary>
         /// <param name="filter"></param>
@@ -41,7 +75,7 @@ namespace Jushen.ChibiCms.ChibiContent
         /// <returns></returns>
         public Content GetConent(string path)
         {
-            return new Content(TopPath + path);
+            return new Content(Path.Combine(TopPath,path));
         }
 
 

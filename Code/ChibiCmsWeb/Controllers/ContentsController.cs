@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Jushen.ChibiCms.ChibiContent;
@@ -19,7 +20,8 @@ namespace ChibiCmsWeb.Controllers
         [HttpGet]
         public IActionResult GetOneContent(string path)
         {
-            var content = ContentManager.GetConent(@"\"+path);
+            var content = ContentManager.GetConent(path);
+            ViewData["baseUrl"]  = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.Path}/";
             var template= string.IsNullOrEmpty(content.Meta.Template)?"defaultContentView":content.Meta.Template;
             return View(template, content);
         }

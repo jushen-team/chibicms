@@ -6,4 +6,4 @@
 
 <h2>defaultContentView</h2>
 
-@Html.Raw(Model.RenderHtml())
+@Html.Raw(Model.RenderHtml(ViewData["baseUrl"].ToString()))

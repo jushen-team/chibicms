@@ -1,8 +1,10 @@
 ﻿# this is an example
 ## hahaha
+jjjj
 
 this is a picture
 
+![](2019-03-16-01-05-20.png)
 
 ```csharp
 namespace Jushen.ChibiCms.ChibiContent
