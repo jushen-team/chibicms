@@ -14,7 +14,7 @@ namespace Jushen.ChibiCms.ChibiContent
         /// the folder hold the meta file
         /// </summary>
         private string topPath { get; set; }
-
+        public string WebPath { get; }
         public string Title { get; set; }
 
         public DateTime ChangeTime { get; set; }
@@ -29,9 +29,12 @@ namespace Jushen.ChibiCms.ChibiContent
 
         public string Cover { get; set; }
 
-        public ContentMeta(string path)
+
+        public string TopPath => topPath;
+        public ContentMeta(string path,string webPath)
         {
             topPath = path;
+            WebPath = webPath;
             string metaJson = File.ReadAllText(Path.Combine(topPath, MetaFileName));
             JsonConvert.PopulateObject(metaJson, this); 
         }

@@ -40,8 +40,9 @@ namespace Jushen.ChibiCms.ChibiContent
             //load meta
             foreach (var contentTop in contentTops)
             {
-                //todo: validata the top path before creating meta
-                var tMeta = new ContentMeta(contentTop);
+                var webpath = contentTop.Substring(TopPath.Length);
+               //todo: validata the top path before creating meta
+               var tMeta = new ContentMeta(contentTop, webpath);
                 metas.Add(tMeta);
                 //update the update time
                 //this is very ineffecient must revise
@@ -76,7 +77,7 @@ namespace Jushen.ChibiCms.ChibiContent
         /// <returns></returns>
         public Content GetConent(string path)
         {
-            return new Content(Path.Combine(TopPath,path));
+            return new Content(Path.Combine(TopPath,path),path);
         }
 
 

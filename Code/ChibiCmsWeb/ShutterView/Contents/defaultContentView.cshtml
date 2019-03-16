@@ -3,7 +3,22 @@
 @{
     ViewData["Title"] = "defaultContentView";
 }
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "_Layout";
+}
 
-<h2>defaultContentView</h2>
+<div class="row pt-4 mb-5 text-center">
+    <div class="col-12">
+        <h2 class="text-white mb-4">@Model.Meta.Title</h2>
+    </div>
+</div>
 
-@Html.Raw(Model.RenderHtml(ViewData["baseUrl"].ToString()))
+<div class="row align-items-stretch" style="margin:5%">
+
+    <div class="col-12 col-md-12 col-lg-12" data-aos="fade-up">
+        @Html.Raw(Model.RenderHtml(ViewData["baseUrl"].ToString()))
+    </div>
+
+</div>
+    

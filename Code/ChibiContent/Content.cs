@@ -17,13 +17,13 @@ namespace Jushen.ChibiCms.ChibiContent
         /// load content from a folder
         /// </summary>
         /// <param name="path">folder containing the content</param>
-        public Content(string path)
+        public Content(string path,string webPath="")
         {
             topPath = path;
             try
             {
                 RawMarkdown = File.ReadAllText(Path.Combine(path, ContentFileName));
-                Meta = new ContentMeta(path);
+                Meta = new ContentMeta(path,webPath);
             }
             catch (Exception)
             {
