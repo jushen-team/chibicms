@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/ShutterView/css/aos.css">
     <link rel="stylesheet" href="/ShutterView/css/fancybox.min.css">
     <link rel="stylesheet" href="/ShutterView/css/style.css">
+    @RenderSection("styles", required: false)
 </head>
 
 
@@ -33,6 +34,7 @@
         </div>
         <header class="header-bar d-flex d-lg-block align-items-center" data-aos="fade-left">
             <div class="site-logo">
+                <img src="~/ShutterView/images/jushenlogo.png" alt="logo" width="240" />
                 <a href="index.html">JuShen巨神</a>
             </div>
 
@@ -42,12 +44,12 @@
                     <li class="active"><a href="photos.html">Home</a></li>
                     <li><a href="About.html">About</a></li>
                 </ul>
-                
+
                 @*<ul class="social js-clone-nav">
-                    <li><a href="#"><span class="icon-facebook"></span></a></li>
-                    <li><a href="#"><span class="icon-twitter"></span></a></li>
-                    <li><a href="#"><span class="icon-instagram"></span></a></li>
-                </ul>*@
+                        <li><a href="#"><span class="icon-facebook"></span></a></li>
+                        <li><a href="#"><span class="icon-twitter"></span></a></li>
+                        <li><a href="#"><span class="icon-instagram"></span></a></li>
+                    </ul>*@
             </div>
         </header>
         <main class="main-content">
@@ -80,7 +82,7 @@
     <script src="/ShutterView/js/aos.js"></script>
     <script src="/ShutterView/js/jquery.fancybox.min.js"></script>
     <script src="/ShutterView/js/main.js"></script>
-
+    @RenderSection("Scripts", required: false)
 
 
 </body>
