@@ -70,7 +70,7 @@ namespace ChibiCmsWeb
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Index}/{action=Index}/{id?}");
+                    template: "{controller=index}/{action=index}/{path?}");
                 routes.MapRoute(
                     name: "content",
                     template: "contents/{*path}",

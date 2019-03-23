@@ -19,11 +19,15 @@ namespace Jushen.ChibiCms.ChibiContent
         /// </summary>
         /// <param name="filter"></param>
         /// <returns></returns>
-        public List<Content> GetContents(Dictionary<string,string> filter)
+        public List<Content> GetContents(Dictionary<string, string> filter)
         {
             throw new NotImplementedException();
         }
 
+        public List<ContentMeta> GetContentMeta(int page = 1, int pageSize = 10)
+        {
+            return GetContentMeta("",page,pageSize);
+        }
 
         /// <summary>
         /// list lasted content with pagination
@@ -31,22 +35,22 @@ namespace Jushen.ChibiCms.ChibiContent
         /// <param name="page">the page start from 1</param>
         /// <param name="pageSize">page size</param>
         /// <returns></returns>
-        public List<ContentMeta> GetContentMeta(int page=1,int pageSize=10)
+        public List<ContentMeta> GetContentMeta(string path, int page = 1, int pageSize = 10)
         {
             //get all content top directories
-            var contentTops = Directory.GetDirectories(TopPath, "*", SearchOption.AllDirectories);
+            var contentTops = Directory.GetDirectories(Path.Combine(TopPath, path), "*", SearchOption.AllDirectories);
 
             var metas = new List<ContentMeta>();
             //load meta
             foreach (var contentTop in contentTops)
             {
                 var webpath = contentTop.Substring(TopPath.Length);
-               //todo: validata the top path before creating meta
-               var tMeta = new ContentMeta(contentTop, webpath);
+                //todo: validata the top path before creating meta
+                var tMeta = new ContentMeta(contentTop, webpath);
                 metas.Add(tMeta);
                 //update the update time
                 //this is very ineffecient must revise
-                var updateTime=File.GetLastWriteTime(Path.Combine(contentTop, Content.ContentFileName));
+                var updateTime = File.GetLastWriteTime(Path.Combine(contentTop, Content.ContentFileName));
                 if (tMeta.ChangeTime != updateTime)
                 {
                     tMeta.ChangeTime = updateTime;
@@ -54,7 +58,7 @@ namespace Jushen.ChibiCms.ChibiContent
                 }
             }
             //sort and return
-            return metas.OrderByDescending(mt => mt.ChangeTime).Skip((page-1)*pageSize).Take(pageSize).ToList();
+            return metas.OrderByDescending(mt => mt.ChangeTime).Skip((page - 1) * pageSize).Take(pageSize).ToList();
 
         }
 
@@ -77,7 +81,7 @@ namespace Jushen.ChibiCms.ChibiContent
         /// <returns></returns>
         public Content GetConent(string path)
         {
-            return new Content(Path.Combine(TopPath,path),path);
+            return new Content(Path.Combine(TopPath, path), path);
         }
 
 

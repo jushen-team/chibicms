@@ -9,18 +9,18 @@
 <div class="row align-items-stretch">
     @for (int i = 0; i < Model.Count; i++)
     {
-        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="~/contents/@Model[i].WebPath" class="d-block photo-item">
-                <img src="@(string.IsNullOrEmpty(Model[i].Cover)?" ShutterView/images/DefaultCover.jpg":Model[i].Cover)" alt="Cover" class="img-fluid">
-                <div class="photo-text-more">
-                    <div class="photo-text-more">
-                        <h3 class="heading">@Model[i].Title</h3>
-                        <span class="meta">@Model[i].ChangeTime.ToString("yyy/MM/dd")</span>
-                    </div>
-                </div>
-                <h3 class="heading" style="font-size:16px;color:#fff">@Model[i].Title</h3>
-            </a>
+    <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+        <a href="@string.Format("/contents{0}",Model[i].WebPath)" class="d-block photo-item">
+        <img src="@(string.IsNullOrEmpty(Model[i].Cover)?"/ShutterView/images/DefaultCover.jpg":Model[i].Cover)" alt="Cover" class="img-fluid">
+        <div class="photo-text-more">
+            <div class="photo-text-more">
+                <h3 class="heading">@Model[i].Title</h3>
+                <span class="meta">@Model[i].ChangeTime.ToString("yyy/MM/dd")</span>
+            </div>
         </div>
+        <h3 class="heading" style="font-size:16px;color:#fff">@Model[i].Title</h3>
+        </a>
+    </div>
 
     }
 </div>

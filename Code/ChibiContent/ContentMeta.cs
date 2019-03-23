@@ -14,9 +14,16 @@ namespace Jushen.ChibiCms.ChibiContent
         /// the folder hold the meta file
         /// </summary>
         private string topPath { get; set; }
+
+        /// <summary>
+        /// the relavent path provided by the web server or something similar. not he path on the file system
+        /// </summary>
         public string WebPath { get; }
         public string Title { get; set; }
 
+        /// <summary>
+        /// the change time of the content.md file, the index will order on this field
+        /// </summary>
         public DateTime ChangeTime { get; set; }
 
         public DateTime CreatedTime { get; set; }
@@ -29,8 +36,17 @@ namespace Jushen.ChibiCms.ChibiContent
 
         public string Cover { get; set; }
 
+        /// <summary>
+        /// hold all kinds of extra infos
+        /// </summary>
+        public Dictionary<string, object> Extras { get; set; } = new Dictionary<string, object>();
 
+        /// <summary>
+        /// the content top path on the file system
+        /// </summary>
         public string TopPath => topPath;
+
+
         public ContentMeta(string path,string webPath)
         {
             topPath = path;
