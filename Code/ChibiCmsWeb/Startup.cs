@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Jushen.ChibiCms.ChibiContent;
@@ -29,7 +30,7 @@ namespace ChibiCmsWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            var contentManager = new ContentManager(HostingEnvironment.WebRootPath+@"\contents");
+            var contentManager = new ContentManager(Path.Combine(HostingEnvironment.WebRootPath, @"contents"));
             services.AddSingleton<ContentManager>(contentManager);
 
 
