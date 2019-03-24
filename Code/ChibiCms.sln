@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChibiContent", "ChibiContent\ChibiContent.csproj", "{AD41825F-06F2-4A67-8A5E-DACCC5DC9B2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChibiCmsWeb", "ChibiCmsWeb\ChibiCmsWeb.csproj", "{99E63044-B04D-4E0B-81EA-CC4E42089721}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChibiCmsWeb", "ChibiCmsWeb\ChibiCmsWeb.csproj", "{99E63044-B04D-4E0B-81EA-CC4E42089721}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoContentGenerator", "PhotoContentGenerator\PhotoContentGenerator.csproj", "{CE5A258C-2289-46AD-BDA4-BE1AFC8C76E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{99E63044-B04D-4E0B-81EA-CC4E42089721}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99E63044-B04D-4E0B-81EA-CC4E42089721}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99E63044-B04D-4E0B-81EA-CC4E42089721}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE5A258C-2289-46AD-BDA4-BE1AFC8C76E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE5A258C-2289-46AD-BDA4-BE1AFC8C76E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE5A258C-2289-46AD-BDA4-BE1AFC8C76E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE5A258C-2289-46AD-BDA4-BE1AFC8C76E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

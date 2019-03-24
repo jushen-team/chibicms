@@ -1,0 +1,33 @@
+﻿@using Jushen.ChibiCms.ChibiContent
+@model Content
+
+@{
+    ViewData["Title"] = Model.Meta.Title;
+    Layout = "_Layout";
+    var photos =Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(Model.Meta.Extras["photos"].ToString());
+}
+
+
+<div class="row pt-4 mb-5 text-center">
+    <div class="col-12">
+        <h2 class="text-white mb-4">@Model.Meta.Title &mdash; @photos.Count Photos</h2>
+    </div>
+</div>
+<div class="row align-items-stretch">
+
+    @for (int i = 0; i < photos.Count; i++)
+    {
+        <div class="col-6 col-md-6 col-lg-3" data-aos="fade-up">
+            <a href="@ViewData["baseUrl"]/@photos[i]" class="d-block photo-item" data-fancybox="gallery">
+                <img src="@ViewData["baseUrl"]/@photos[i]" alt="Image" class="img-fluid">
+                <div class="photo-text-more">
+                    <span class="icon icon-search"></span>
+                </div>
+            </a>
+        </div>
+
+    }
+</div>
+
+
+

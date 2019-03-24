@@ -1,0 +1,40 @@
+{
+  "WebPath": "\\photos\\Some Interesting Photo",
+  "Title": "Some Interesting Photo",
+  "ChangeTime": "2019-03-24T22:55:11.6262198+08:00",
+  "CreatedTime": "2019-03-24T22:55:11.04687+08:00",
+  "ViewedTimes": 0,
+  "Template": "photoView",
+  "Author": null,
+  "Cover": null,
+  "Extras": {
+    "photos": [
+      "000041.jpg",
+      "000060.jpg",
+      "000061.jpg",
+      "000062.jpg",
+      "000068.jpg",
+      "000072.jpg",
+      "20150124_154045.jpg",
+      "20160516_103236_HDR.jpg",
+      "20160516_132656_HDR.jpg",
+      "DSC_0181.jpg",
+      "DSC_9593.jpg",
+      "img022.jpg",
+      "IMGP0552.jpg",
+      "IMGP2606.jpg",
+      "IMGP4048.jpg",
+      "IMGP4422.jpg",
+      "IMGP5024.jpg",
+      "IMGP5255.jpg",
+      "IMGP5257-001.jpg",
+      "IMGP7163.jpg",
+      "IMGP7201.jpg",
+      "IMGP7500.jpg",
+      "IMGP7909.jpg",
+      "IMGP7938.jpg",
+      "IMGP8527.jpg"
+    ]
+  },
+  "TopPath": "H:\\WorkSpaceSync\\Parallel\\ChibiCms\\Code\\ChibiCmsWeb\\wwwroot\\contents\\photos\\Some Interesting Photo"
+}

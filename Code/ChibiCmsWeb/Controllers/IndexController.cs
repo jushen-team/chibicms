@@ -19,7 +19,8 @@ namespace ChibiCmsWeb.Controllers
         public IActionResult Index(int page=1,int pageSize=5,string path="")
         {
             var metas = ContentManager.GetContentMeta(path,page, pageSize);
-            return View("index",metas);
+            ViewData["Title"] = metas.title;
+            return View("index",metas.metas);
         }
     }
 }

@@ -1,11 +1,12 @@
 {
   "WebPath": "\\example\\subexample",
-  "Title": "Sub Example",
-  "ChangeTime": "2019-03-17T01:35:33.1959065+08:00",
-  "CreatedTime": "2019-03-16T00:31:00",
-  "ViewedTimes": 1,
-  "Template": "",
+  "Title": "一个例子。。。",
+  "ChangeTime": "2019-03-24T23:59:08.9888992+08:00",
+  "CreatedTime": "2019-03-24T22:45:57.4993121+08:00",
+  "ViewedTimes": 0,
+  "Template": null,
   "Author": null,
   "Cover": null,
+  "Extras": {},
   "TopPath": "H:\\WorkSpaceSync\\Parallel\\ChibiCms\\Code\\ChibiCmsWeb\\wwwroot\\contents\\example\\subexample"
 }

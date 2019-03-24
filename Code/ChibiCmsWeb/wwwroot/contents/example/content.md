@@ -62,8 +62,8 @@ horum de et per esse terra, sed ferendo.
 > Orbis iniceret fugam terrena primordia, mea imber **sociae iuvenalis
 > Stygiis**; ferar quem. Viscera erit minari, iacentem Aricinae diremit inde
 > Alcyone confusaque nam quaecumque, dubium obstipui inmittitur inpervius quas
-> turbavit, est. Euryte dum illo tempore [viro](http://venae.io/lucifer).
-
+> turbavit, est. Euryte dum illo tempore [viro](http://venae.io/lucifer).  
+ 
 Dis longi Talia; posset ab mihi iamque! In faciem arida! Hanc ita iam
 [eque](http://attrahitthalamo.net/), vix iubae, *ora tempus* fugienti raptor
 Agamemnonis ducem lentus.

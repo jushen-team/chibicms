@@ -19,14 +19,17 @@ namespace Jushen.ChibiCms.ChibiContent
         /// the relavent path provided by the web server or something similar. not he path on the file system
         /// </summary>
         public string WebPath { get; }
+        /// <summary>
+        /// this is the madatory field, if null this meta is not valid
+        /// </summary>
         public string Title { get; set; }
 
         /// <summary>
         /// the change time of the content.md file, the index will order on this field
         /// </summary>
-        public DateTime ChangeTime { get; set; }
+        public DateTime ChangeTime { get; set; } = DateTime.Now;
 
-        public DateTime CreatedTime { get; set; }
+        public DateTime CreatedTime { get; set; } = DateTime.Now;
 
         public int ViewedTimes { get; set; }
 
@@ -49,13 +52,22 @@ namespace Jushen.ChibiCms.ChibiContent
 
         public ContentMeta(string path,string webPath)
         {
+            try
+            {
+                string metaJson = File.ReadAllText(Path.Combine(path, MetaFileName));
+                JsonConvert.PopulateObject(metaJson, this);
+            }
+            catch (Exception)
+            {
+
+                //if the file does not esit, does nothing
+            }
+            //always use the provided value to overide these 2, they are not supposed to be persisted,
             topPath = path;
             WebPath = webPath;
-            string metaJson = File.ReadAllText(Path.Combine(topPath, MetaFileName));
-            JsonConvert.PopulateObject(metaJson, this); 
         }
 
-        internal void Update()
+        public void Update()
         {
             File.WriteAllText(Path.Combine(topPath, MetaFileName), JsonConvert.SerializeObject(this, Formatting.Indented));
         }
