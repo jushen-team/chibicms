@@ -10,7 +10,7 @@
     {
     <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
         <a href="@string.Format("/contents{0}",Model[i].WebPath)" class="d-block photo-item">
-        <img src="@(string.IsNullOrEmpty(Model[i].Cover)?"/ShutterView/images/DefaultCover.jpg":Model[i].Cover)" alt="Cover" class="img-fluid">
+        <img src="@(string.IsNullOrEmpty(Model[i].Cover)?"/ShutterView/images/DefaultCover.jpg":string.Format("/contents{0}/{1}",Model[i].WebPath,Model[i].Cover))" alt="Cover" class="img-fluid">
         <div class="photo-text-more">
             <div class="photo-text-more">
                 <h3 class="heading">@Model[i].Title</h3>

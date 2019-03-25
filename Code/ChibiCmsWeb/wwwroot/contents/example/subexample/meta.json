@@ -6,7 +6,7 @@
   "ViewedTimes": 0,
   "Template": null,
   "Author": null,
-  "Cover": null,
+  "Cover": "cover.jpg",
   "Extras": {},
   "TopPath": "H:\\WorkSpaceSync\\Parallel\\ChibiCms\\Code\\ChibiCmsWeb\\wwwroot\\contents\\example\\subexample"
 }
