@@ -16,10 +16,10 @@ namespace ChibiCmsWeb.Controllers
 
         public ContentManager ContentManager { get; }
 
-        public IActionResult Index(int page=1,int pageSize=5,string path="")
+        public IActionResult Index(int page=1,int pageSize=5,string path="",bool isRecursive=false,bool isIgnoreDirectory=false)
         {
-            var metas = ContentManager.GetContentMeta(path,page, pageSize);
-            ViewData["Title"] = metas.title;
+            var metas = ContentManager.GetContentMeta(path, isRecursive, isIgnoreDirectory, page, pageSize);
+            ViewData["Title"] = metas.rootMeta.Title;
             return View("index",metas.metas);
         }
     }

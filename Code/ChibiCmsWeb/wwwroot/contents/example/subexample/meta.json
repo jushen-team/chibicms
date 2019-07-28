@@ -8,5 +8,6 @@
   "Author": null,
   "Cover": "cover.jpg",
   "Extras": {},
-  "TopPath": "H:\\WorkSpaceSync\\Parallel\\ChibiCms\\Code\\ChibiCmsWeb\\wwwroot\\contents\\example\\subexample"
+  "TopPath": "H:\\WorkSpaceSync\\Parallel\\ChibiCms\\Code\\ChibiCmsWeb\\wwwroot\\contents\\example\\subexample",
+  "ContentType": "Content"
 }
