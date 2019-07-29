@@ -32,6 +32,16 @@ namespace ChibiCmsWeb
         {
             services.AddMvc();
             var contentManager = new ContentManager(Path.Combine(HostingEnvironment.WebRootPath, @"contents"));
+            //set the paht of the content to a env variable
+            try
+            {
+                Environment.SetEnvironmentVariable(Configuration["ContentPathEnvVar"], Path.Combine(HostingEnvironment.WebRootPath, @"contents"), EnvironmentVariableTarget.Machine);
+            }
+            catch (Exception)
+            {
+                //not enough previldge do nothing
+            }
+            
             services.AddSingleton<ContentManager>(contentManager);
             var scripts = new UpdateScripts(Configuration, Path.Combine(HostingEnvironment.WebRootPath, @"updatescripts"));
             services.AddSingleton<UpdateScripts>(scripts);
@@ -74,7 +84,7 @@ namespace ChibiCmsWeb
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=index}/{action=index}/{path?}");
+                    template: "{controller=index}/{action=index}/{*path}");
                 routes.MapRoute(
                     name: "content",
                     template: "contents/{*path}",

@@ -23,7 +23,7 @@ namespace ChibiCmsWeb
                 .UseStartup<Startup>()
                 .UseKestrel(options =>
                 {
-                    options.Listen(IPAddress.Any, 8002);
+                    options.Listen(IPAddress.Any, 8003);
                 });
     }
 }

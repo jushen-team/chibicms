@@ -78,7 +78,7 @@ namespace Jushen.ChibiCms.ChibiContent
                 
                 //validata the top path before after meta
                 var tMeta = new ContentMeta(contentTop, webpath);
-                if (string.IsNullOrEmpty(tMeta.Title))
+                if (string.IsNullOrEmpty(tMeta.Title) || tMeta.Title.StartsWith("."))
                 {
                     continue;
                 }
