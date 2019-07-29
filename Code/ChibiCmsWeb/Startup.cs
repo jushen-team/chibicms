@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using ChibiCmsWeb.Helpers;
 using Jushen.ChibiCms.ChibiContent;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,7 +33,8 @@ namespace ChibiCmsWeb
             services.AddMvc();
             var contentManager = new ContentManager(Path.Combine(HostingEnvironment.WebRootPath, @"contents"));
             services.AddSingleton<ContentManager>(contentManager);
-
+            var scripts = new UpdateScripts(Configuration, Path.Combine(HostingEnvironment.WebRootPath, @"updatescripts"));
+            services.AddSingleton<UpdateScripts>(scripts);
 
             //set view path for template
             if (!string.IsNullOrEmpty(Configuration["TemplatePath"]))
@@ -40,6 +42,7 @@ namespace ChibiCmsWeb
                 services.Configure<RazorViewEngineOptions>(o =>
                 {
                     o.ViewLocationFormats.Clear();
+                    // The old locations are / Views /{ 1}/{ 0}.cshtml and / Views / Shared /{ 0}.cshtml where { 1} is the controller and { 0} is the name of the View
                     o.ViewLocationFormats.Add(Configuration["TemplatePath"] +"/{1}/{0}" + RazorViewEngine.ViewExtension);
                     o.ViewLocationFormats.Add(Configuration["TemplatePath"] +"/Shared/{0}" + RazorViewEngine.ViewExtension);
                 });
