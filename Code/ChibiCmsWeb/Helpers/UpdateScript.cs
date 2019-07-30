@@ -32,10 +32,10 @@ namespace ChibiCmsWeb.Helpers
         /// the script is located in wwwroot/updatescript, this canb e change using the path property
         /// </summary>
         /// <param name="key"></param>
-        public void Run(string key)
+        public string Run(string key)
         {
             var cmd = Path.Combine(ScriptPath, Scripts[key]);
-            cmd.RunCommand();
+            return cmd.RunCommand();
         }
     }
 }

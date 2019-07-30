@@ -30,8 +30,8 @@ namespace ChibiCmsWeb.Helpers
                 }
             };
             process.Start();
-            string result = process.StandardOutput.ReadToEnd();
             process.WaitForExit();
+            string result = process.StandardOutput.ReadToEnd();
             return result;
         }
 
@@ -56,8 +56,8 @@ namespace ChibiCmsWeb.Helpers
                 }
             };
             process.Start();
-            string result = process.StandardOutput.ReadToEnd();
             process.WaitForExit();
+            string result = process.StandardOutput.ReadToEnd();
             return result;
         }
 

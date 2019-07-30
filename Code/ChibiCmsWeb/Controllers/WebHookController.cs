@@ -28,9 +28,9 @@ namespace ChibiCmsWeb.Controllers
         public IActionResult GitUpdate([FromBody]dynamic repository)
         {
             var githubPush = JObject.Parse(repository.ToString());
-            var repoName=githubPush["repository"]["full_name"].ToString();
-            updateScripts.Run(repoName);
-            return Ok();
+            var repoName = githubPush["repository"]["full_name"].ToString();
+            var result = updateScripts.Run(repoName);
+            return new OkObjectResult(result);
         }
 
 
