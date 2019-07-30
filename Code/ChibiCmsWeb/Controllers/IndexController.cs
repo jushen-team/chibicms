@@ -4,21 +4,28 @@ using System.Linq;
 using System.Threading.Tasks;
 using Jushen.ChibiCms.ChibiContent;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace ChibiCmsWeb.Controllers
 {
     public class IndexController: Controller
     {
-        public IndexController(ContentManager contentManager)
+        public IndexController(ContentManager contentManager, IConfiguration config)
         {
             ContentManager = contentManager;
+            Config = config;
         }
 
         public ContentManager ContentManager { get; }
+        public IConfiguration Config { get; }
 
         public IActionResult Index(int page=1,int pageSize=5,string path="",bool isRecursive=false,bool isIgnoreDirectory=false)
         {
-            if (path==null)
+            if (string.IsNullOrEmpty(path))
+            {
+                path = Config["StartPath"];
+            }
+            if (path == Config["RootPath"])
             {
                 path = "";
             }
