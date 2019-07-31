@@ -13,17 +13,26 @@ namespace ChibiCmsWeb
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        {
+            //load hostsetting.json to a config, later used by the web server
+            var config = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("hostsettings.json", optional: true)
+            .AddCommandLine(args)
+            .Build();
+
+            return WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .UseKestrel(options =>
-                {
-                    options.Listen(IPAddress.Any, 8003);
-                });
+                .UseConfiguration(config)
+                .UseKestrel();
+        }
+            
     }
 }
