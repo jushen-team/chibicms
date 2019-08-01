@@ -1,5 +1,5 @@
 {
-  "WebPath": "\\example\\hehe",
+  "WebPath": "not applicapable",
   "Title": "He Heh呵呵",
   "ChangeTime": "2019-06-10T19:46:34+08:00",
   "CreatedTime": "2019-03-24T22:45:57.0893043+08:00",
@@ -7,6 +7,15 @@
   "Template": null,
   "Author": null,
   "Cover": null,
-  "Extras": {},
-  "TopPath": "D:\\WorkspaceSyncSurface\\Parallel\\ChibiCMS\\Code\\ChibiCmsWeb\\wwwroot\\contents\\example\\hehe"
+  "Extras": {
+    "photos": [
+      "2019-03-16-01-05-20.png",
+      "DSC_0840.jpg",
+      "DSC_0841.jpg",
+      "DSC_0842.jpg",
+      "DSC_0843.jpg"
+    ]
+  },
+  "TopPath": "H:\\WorkSpaceSync\\Parallel\\ChibiCMS\\Code\\ChibiCmsWeb\\wwwroot\\contents\\example\\hehe",
+  "ContentType": "Content"
 }

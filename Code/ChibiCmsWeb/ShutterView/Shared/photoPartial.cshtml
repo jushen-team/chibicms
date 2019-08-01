@@ -1,0 +1,20 @@
+﻿@model List<string>
+@{ 
+    var photos = Model;
+}
+
+<div class="row align-items-stretch">
+
+    @for (int i = 0; i < photos.Count; i++)
+    {
+        <div class="col-6 col-md-6 col-lg-3" data-aos="fade-up">
+            <a href="@ViewData["baseUrl"]/@photos[i]" class="d-block photo-item" data-fancybox="gallery">
+                <img src="@ViewData["baseUrl"]/@photos[i]" alt="Image" class="img-fluid">
+                <div class="photo-text-more">
+                    <span class="icon icon-search"></span>
+                </div>
+            </a>
+        </div>
+
+    }
+</div>
