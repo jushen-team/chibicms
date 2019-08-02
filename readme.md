@@ -138,7 +138,7 @@ hostsettings.json这个是配置监听ip和端口的，内容如下：
  1. 首先你在本地建一个文件夹，里面放你所有的内容，可以有文件夹层级路径。
  2. 把这个本地文件夹 git init了，然后commit， push到github上，不用管是共有还是私有，都行。
  3. 然后去库里面设置webhook，地址填`http://yousite.zxy/api/webhook/gitupdate` ，然后类型一定要选`application/json`，确定添加，ok了 ，下面这个gif能动吧？ 
- ![](2019-08-03-00-23-47.png)
+ ![](webhook.gif)
  4. 这个很重要了，更改appsetting.json里面的**UpdateScripts**，添加一个key value pair，key是你的repo的fuul name，value是一个更新脚本文件名，比如`update-my-content.sh`
  5. 在`/wwwroot/updatescripts`下面创建`update-my-content.sh`文件，内容如下：
  ```bash
