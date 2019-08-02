@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChibiCmsWeb.Helpers
 {
-    public class ContentLinkHelper
+    public class ContentHtmlHelper
     {
         public static string GetLinkToContent(ContentMeta meta)
         {
@@ -15,7 +15,7 @@ namespace ChibiCmsWeb.Helpers
                 case ContentMeta.TypeContent:
                     return string.Format("/contents{0}", meta.WebPath);
                 case ContentMeta.TypeDirectory:
-                    return string.Format("/index/index{0}", meta.WebPath);
+                    return string.Format("/index{0}", meta.WebPath);
 
                 default:
                     return "#";
