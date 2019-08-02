@@ -155,8 +155,8 @@ git pull
  最重要的是`cd /home/jushen/JushenChibicms/wwwroot/contents/literature`，这个把目录换到你想要自动更新的内容所存放的目录。  
  6. 给刚刚那个`update-my-content.sh`添加执行权限！  
  7. 创建`/home/jushen/JushenChibicms/wwwroot/contents/literature`这个目录，然后在里面运行`git clone 你的github库`  
-  有几个问题：首先你要装了git，自己去装；第二你要生成一堆ssh key，把你的ssh publick key添加到github账号下，这个你应该也会，最后很多人都忘了的，要告诉系统使用这个key，由于运行网站的用户可能不是你当前用户，我建议把这个ssh key添加到所有用户使用：在`/etc/ssh/ssh_config`这个文件中加上一行`IdentityFile ~/.ssh/gitHubKey` gitHubKey是你的private key。
-  8. 好了你可以运行一下这个`update-my-content.sh`看有没有问题，没问题每当你push内容的时候网站会自动pull到网站服务器上。
+  有几个问题：首先你要装了git，自己去装；第二你要生成一堆ssh key，把你的ssh publick key添加到github账号下，这个你应该也会，最后很多人都忘了的，要告诉系统使用这个key，由于运行网站的用户可能不是你当前用户，我建议把这个ssh key添加到所有用户使用：在`/etc/ssh/ssh_config`这个文件中加上一行`IdentityFile ~/.ssh/gitHubKey` gitHubKey是你的private key。参考：https://stackoverflow.com/questions/3466626/how-to-permanently-add-a-private-key-with-ssh-add-on-ubuntu， https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent  
+  8. 好了你可以运行一下这个`update-my-content.sh`看有没有问题，没问题每当你push内容的时候网站会自动pull到网站服务器上。  
   9. 你可以添加多个脚本和多个github的repo到contents下面实现多人管理不同的分区。
 
 ## 如何修改模板
