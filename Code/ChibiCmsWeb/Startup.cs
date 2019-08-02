@@ -86,6 +86,10 @@ namespace ChibiCmsWeb
                     name: "default",
                     template: "{controller=index}/{action=index}/{*path}");
                 routes.MapRoute(
+                    name: "index",
+                    template: "index/{*path}",
+                    defaults: new { controller = "index", action = "index" });
+                routes.MapRoute(
                     name: "content",
                     template: "contents/{*path}",
                     defaults: new { controller = "contents", action = "getOneContent" });

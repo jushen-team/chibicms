@@ -1,7 +1,7 @@
 {
   "WebPath": "\\photo\\Some Interesting Photo",
   "Title": "Some Interesting Photo",
-  "ChangeTime": "2019-03-24T22:55:11.6262198+08:00",
+  "ChangeTime": "2019-03-24T22:55:11+08:00",
   "CreatedTime": "2019-03-24T22:55:11.04687+08:00",
   "ViewedTimes": 0,
   "Template": "photoView",
@@ -36,6 +36,6 @@
       "IMGP8527.jpg"
     ]
   },
-  "TopPath": "H:\\WorkSpaceSync\\Parallel\\ChibiCms\\Code\\ChibiCmsWeb\\wwwroot\\contents\\photo\\Some Interesting Photo",
+  "TopPath": "G:\\project\\Parallel\\ChibiCMS\\Code\\ChibiCmsWeb\\wwwroot\\contents\\photo\\Some Interesting Photo",
   "ContentType": "Content"
 }
