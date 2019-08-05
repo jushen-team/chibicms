@@ -70,6 +70,8 @@ namespace Jushen.ChibiCms.ChibiContent
 
 
         public string ContentType { get; set; } = "Content";
+
+        private string realFileName = MetaFileName;
  
         public ContentMeta()
         {
@@ -92,6 +94,8 @@ namespace Jushen.ChibiCms.ChibiContent
             try
             {
                 string metaJson = File.ReadAllText(Path.Combine(path, metaFile));
+                //if the file exist then you want to update the file
+                realFileName = metaFile;
                 JsonConvert.PopulateObject(metaJson, this);
             }
             catch (Exception)
@@ -101,7 +105,7 @@ namespace Jushen.ChibiCms.ChibiContent
                     Title = Path.GetFileName(path);
                     ContentType = TypeDirectory;
                 }
-                //if the file does not esit, does nothing
+                //if the file does not exist use the folder as the content title and the type is directory
             }
             //always use the provided value to overide these 2, they are not supposed to be persisted,
             topPath = path;
@@ -110,7 +114,7 @@ namespace Jushen.ChibiCms.ChibiContent
 
         public void Update()
         {
-            File.WriteAllText(Path.Combine(topPath, MetaFileName), JsonConvert.SerializeObject(this, Formatting.Indented));
+            File.WriteAllText(Path.Combine(topPath, realFileName), JsonConvert.SerializeObject(this, Formatting.Indented));
         }
     }
 
