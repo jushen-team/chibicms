@@ -40,6 +40,18 @@ dotnet ChibiCmsWeb.dll
 4. 好了已经好了，打开浏览器输入http://127.0.0.1:8003网址端口就可以使用了
 5. 这个玩玩可以，如果您真的要放到internet上建议您用nginx做个反向代理，然后在加上https。
 
+6. 如果你要用Nginx反向代理，亲一定注意以下几个配置：
+```
+    proxy_http_version 1.1;
+    proxy_set_header   Upgrade $http_upgrade;
+    proxy_set_header   Connection keep-alive;
+    proxy_set_header   Host $host;
+    proxy_cache_bypass $http_upgrade;
+    proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header   X-Forwarded-Proto $scheme;
+```
+关键是最后两行，如果没有的话，服务器不知道请求的时候真实的URL是多少，只知道nginx forward之后的，会导致很多静态文件访问出现问题，所以一定要带上。
+
 ## 管理内容
 
 这个东西的内容在wwwroot/contents下面，这个文件夹下面的内容都会被系统检索到。

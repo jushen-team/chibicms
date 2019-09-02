@@ -24,6 +24,11 @@ namespace Jushen.ChibiCms.ChibiContent
         public const string TypeDirectory = "Directory";
 
         /// <summary>
+        /// content type is directory
+        /// </summary>
+        public const string TypeLink = "Link";
+
+        /// <summary>
         /// if this file exsists, than this is a directory, only include this is the folder is both content and a directory
         /// </summary>
         public const string DirectoryMetaFile = @"dmeta.json";
@@ -57,6 +62,8 @@ namespace Jushen.ChibiCms.ChibiContent
         public string Author { get; set; }
 
         public string Cover { get; set; }
+
+        public string Link { get; set; }
 
         /// <summary>
         /// hold all kinds of extra infos
@@ -98,7 +105,7 @@ namespace Jushen.ChibiCms.ChibiContent
                 realFileName = metaFile;
                 JsonConvert.PopulateObject(metaJson, this);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 if (Directory.Exists(path))
                 {

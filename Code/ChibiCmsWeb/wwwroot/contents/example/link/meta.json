@@ -1,5 +1,5 @@
 {
-  "WebPath": "\\example\\subexample",
+  "WebPath": "\\example\\link",
   "Title": "一个例子。。。",
   "ChangeTime": "2019-03-24T23:59:08+08:00",
   "CreatedTime": "2019-03-24T22:45:57.4993121+08:00",
@@ -7,8 +7,8 @@
   "Template": null,
   "Author": null,
   "Cover": "cover.jpg",
-  "Link": null,
+  "Link": "\\contents\\example\\hehe",
   "Extras": {},
-  "TopPath": "G:\\project\\Parallel\\ChibiCMS\\Code\\ChibiCmsWeb\\wwwroot\\contents\\example\\subexample",
-  "ContentType": "Content"
+  "TopPath": "G:\\project\\Parallel\\ChibiCMS\\Code\\ChibiCmsWeb\\wwwroot\\contents\\example\\link",
+  "ContentType": "Link"
 }

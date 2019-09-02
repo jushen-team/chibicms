@@ -19,7 +19,7 @@ namespace ChibiCmsWeb.Controllers
         public ContentManager ContentManager { get; }
         public IConfiguration Config { get; }
 
-        public IActionResult Index(int page=1,int pageSize=5,string path="",bool isRecursive=false,bool isIgnoreDirectory=false)
+        public IActionResult Index(int page=1,int pageSize=0,string path="",bool isRecursive=false,bool isIgnoreDirectory=false)
         {
             if (string.IsNullOrEmpty(path))
             {

@@ -21,6 +21,11 @@ namespace ChibiCmsWeb.Controllers
         public IActionResult GetOneContent(string path)
         {
             var content = ContentManager.GetConent(path);
+            if (content.Meta.ContentType == ContentMeta.TypeLink)
+            {
+                return Redirect(content.Meta.Link);
+            }
+
             ViewData["baseUrl"]  = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.Path}/";
             var template= string.IsNullOrEmpty(content.Meta.Template)?"defaultContentView":content.Meta.Template;
             return View(template, content);

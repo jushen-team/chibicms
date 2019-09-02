@@ -59,7 +59,7 @@ namespace Jushen.ChibiCms.ChibiContent
         /// <param name="page">the page start from 1</param>
         /// <param name="pageSize">page size</param>
         /// <returns>The returned list of content meta, you can get content and further info with it; titel is the title of the top directory</returns>
-        public (List<ContentMeta> metas, ContentMeta rootMeta) GetContentMeta(string path,bool isRecurent,bool isIgnoreDirectory, int page = 1, int pageSize = 10)
+        public (List<ContentMeta> metas, ContentMeta rootMeta) GetContentMeta(string path,bool isRecurent,bool isIgnoreDirectory, int page = 1, int pageSize = 0)
         {
             //get all content top directories
             var searchRecursive = isRecurent ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
@@ -121,7 +121,15 @@ namespace Jushen.ChibiCms.ChibiContent
                 }
             }
             //sort and return
-            directoryMeta.AddRange(metas.OrderByDescending(mt => mt.ChangeTime).Skip((page - 1) * pageSize).Take(pageSize).ToList());
+            if (pageSize > 0)
+            {
+                directoryMeta.AddRange(metas.OrderByDescending(mt => mt.ChangeTime).Skip((page - 1) * pageSize).Take(pageSize).ToList());
+            }
+            else
+            {
+                directoryMeta.AddRange(metas.OrderByDescending(mt => mt.ChangeTime).ToList());
+            }
+            
             return (directoryMeta, rootMeta);
 
         }
